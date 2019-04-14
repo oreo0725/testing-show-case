@@ -3,6 +3,8 @@ package agile.testing.booksearch;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
@@ -48,6 +50,14 @@ public class BookServiceTest {
             assertThat(e).isExactlyInstanceOf(IllegalArgumentException.class);
         }
 
+    }
+
+    @Test
+    public void testAdd() throws Exception {
+        Book book = new Book("Book1", "Peter");
+        bookService.add(book);
+
+        assertThat(book.getIndexDateTime()).isEqualTo(LocalDateTime.now());
     }
 
 }

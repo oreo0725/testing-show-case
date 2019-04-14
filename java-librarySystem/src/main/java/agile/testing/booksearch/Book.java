@@ -1,6 +1,7 @@
 package agile.testing.booksearch;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author zen
@@ -12,6 +13,7 @@ public class Book {
     private String author;
     private LocalDate releaseDate;
     private String isbn;
+    private LocalDateTime indexDateTime;
 
     public Book(String title,
                 String author) {
@@ -48,6 +50,14 @@ public class Book {
 
     public String getIsbn() {
         return isbn;
+    }
+
+    public LocalDateTime getIndexDateTime() {
+        return indexDateTime;
+    }
+
+    public void setIndexDateTime(LocalDateTime indexDateTime) {
+        this.indexDateTime = indexDateTime;
     }
 
     @Override
