@@ -1,6 +1,7 @@
 package agile.testing.booksearch;
 
-import java.time.LocalDateTime;
+import agile.testing.utils.TimeMachine;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class BookService {
                     "There is already a book named " + book.getTitle() + " [id:" + existBookId + "]");
         }
         bookList.add(book);
-        book.setIndexDateTime(LocalDateTime.now());
+        book.setIndexDateTime(TimeMachine.now());
     }
 
     private int findExistedBook(Book book) {

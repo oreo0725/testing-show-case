@@ -1,5 +1,6 @@
 package agile.testing.booksearch;
 
+import agile.testing.utils.TimeMachineUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -54,10 +55,14 @@ public class BookServiceTest {
 
     @Test
     public void testAdd() throws Exception {
+        LocalDateTime nowTime = LocalDateTime.of(2019, 4, 13, 11, 59, 41);
+        TimeMachineUtils.useFixedClockAt(nowTime);
+
+
         Book book = new Book("Book1", "Peter");
         bookService.add(book);
 
-        assertThat(book.getIndexDateTime()).isEqualTo(LocalDateTime.now());
+        assertThat(book.getIndexDateTime()).isEqualTo(nowTime);
     }
 
 }
