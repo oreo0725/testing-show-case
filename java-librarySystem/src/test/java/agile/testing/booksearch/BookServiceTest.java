@@ -24,8 +24,12 @@ public class BookServiceTest {
         assertThat(bookService.getBookCount()).isEqualTo(0);
     }
 
+    /**
+     * NG test function format
+     * @throws Exception
+     */
     @Test
-    public void test_getBookCount_ngCase() throws Exception {
+    public void testGetBookCount() throws Exception {
         Book book = new Book("Book1", "Peter");
         bookService.add(book);
 
