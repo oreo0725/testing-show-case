@@ -12,19 +12,61 @@ describe('Example Test', function () {
 describe('This is a TennisGame', function() {
 
     var game;
-
+    
+    function assertGameResultIs(result) {
+        expect(game.getResult()).to.equal(result);
+    }
     // runs before each test in this block
     beforeEach(function() {
       game = new TennisGame("Mario", "Luigi");
     });
 
     it('0-0 => Love all', function () {
-        expect(game.getResult()).to.equal('Love All');
+        assertGameResultIs('Love All');
     });
 
     it('1-0 => "Fifteen love"', function () {
-        game.player1Score();
+        game.player1Point();
 
-        expect(game.getResult()).to.equal('Fifteen - Love');
+        assertGameResultIs('Fifteen - Love');
     });
+
+    it('2-0 => "Thirty Love"', function () {
+        game.player1Point();
+        game.player1Point();
+
+        assertGameResultIs('Thirty - Love');
+    });
+
+    it('3-0 => "Forty Love"', function () {
+        game.player1Point();
+        game.player1Point();
+        game.player1Point();
+
+        assertGameResultIs('Forty - Love');
+        // expect(game.getWinner()).to.equal('Mario');
+    });
+
+    it('0-1 => "love Fifteen"', function () {
+        game.player2Point();
+
+        assertGameResultIs('Love - Fifteen');
+    });
+
+    it('1-1 => "Fifteen all"', function () {
+        game.player1Point();
+        game.player2Point();
+
+        assertGameResultIs('Fifteen All');
+    });
+
+    it('3-3 => "Deuce"', function () {
+        game.player1Point();
+        game.player2Point();
+
+        assertGameResultIs('Fifteen All');
+    });
+
 });
+
+
