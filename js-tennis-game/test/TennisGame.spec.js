@@ -22,4 +22,9 @@ describe('This is a TennisGame', function() {
         expect(game.getResult()).to.equal('Love All');
     });
 
+    it('1-0 => "Fifteen love"', function () {
+        game.player1Score();
+
+        expect(game.getResult()).to.equal('Fifteen - Love');
+    });
 });
