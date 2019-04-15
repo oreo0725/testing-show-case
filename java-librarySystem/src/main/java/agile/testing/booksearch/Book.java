@@ -11,7 +11,7 @@ public class Book {
 
     private String title;
     private String author;
-    private LocalDate releaseDate;
+    private LocalDate publishedDate;
     private String isbn;
     private LocalDateTime indexDateTime;
 
@@ -28,8 +28,8 @@ public class Book {
         return getTitle();
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setPublishedDate(LocalDate publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
     public void setIsbn(String isbn) {
@@ -44,8 +44,8 @@ public class Book {
         return author;
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
+    public LocalDate getPublishedDate() {
+        return publishedDate;
     }
 
     public String getIsbn() {
@@ -62,7 +62,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", releaseDate=" + releaseDate
+        return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", releaseDate=" + publishedDate
                 + ", isbn='" + isbn + '\'' + '}';
     }
 }
