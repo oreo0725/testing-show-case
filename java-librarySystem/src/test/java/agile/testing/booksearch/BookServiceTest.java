@@ -65,4 +65,15 @@ public class BookServiceTest {
         assertThat(book.getIndexDateTime()).isEqualTo(nowTime);
     }
 
+    /**
+     * NG test function structure
+     * @throws Exception
+     */
+    @Test
+    public void testFindRemoteBooksByName() throws Exception {
+        assertThat(bookService.findRemoteBooksByName("Java")).hasSize(2);
+        assertThat(bookService.findRemoteBooksByName("java")).hasSize(2);
+
+    }
+
 }
