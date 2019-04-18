@@ -2,6 +2,7 @@ package agile.testing.booksearch;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author zen
@@ -22,10 +23,15 @@ public class Book {
     }
 
     public String getDisplayName() {
+        String display = getTitle();
         if (this.getAuthor() != null) {
-            return String.format("%s - %s", getTitle(), getAuthor());
+            display += " - " + getAuthor();
         }
-        return getTitle();
+        display += String.format(" [%s]",
+                                 this.getPublishedDate() != null ?
+                                         publishedDate.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")) :
+                                         "unknown published date");
+        return display.toUpperCase();
     }
 
     public void setPublishedDate(LocalDate publishedDate) {
