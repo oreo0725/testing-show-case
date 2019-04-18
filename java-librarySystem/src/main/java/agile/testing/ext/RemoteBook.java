@@ -40,4 +40,10 @@ public class RemoteBook {
     public LocalDate getPublishedDate() {
         return publishedDate;
     }
+
+    @Override
+    public String toString() {
+        return "RemoteBook{" + "locateLibrary='" + locateLibrary + '\'' + ", name='" + name + '\'' + ", authors="
+                + authors + ", publishedDate=" + publishedDate + '}';
+    }
 }

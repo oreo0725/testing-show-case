@@ -3,6 +3,7 @@ package agile.testing.booksearch;
 import agile.testing.ext.OpenBookAPI;
 import agile.testing.ext.RemoteBook;
 import agile.testing.utils.TimeMachine;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,7 +16,13 @@ import java.util.stream.Collectors;
  */
 public class BookService {
 
+    private final OpenBookAPI openBookAPI;
     private List<Book> bookList = new ArrayList<>();
+
+    @Autowired
+    public BookService(OpenBookAPI openBookAPI) {
+        this.openBookAPI = openBookAPI;
+    }
 
     public int getBookCount() {
         return bookList.size();
@@ -32,7 +39,6 @@ public class BookService {
     }
 
     public List<RemoteBook> findRemoteBooksByName(String bookName) {
-        OpenBookAPI openBookAPI = new OpenBookAPI();
         return openBookAPI.searchBooksByName(bookName)
                           .stream()
                           .filter(book -> book.getPublishedDate()
@@ -54,13 +60,6 @@ public class BookService {
     }
 
     public static void main(String[] args) {
-        BookService bookService = new BookService();
-        System.out.println(bookService.getBookCount());
-
-        Book book = new Book("文思不藏私", "Vince");
-
-        bookService.add(book);
-        System.out.println(bookService.getBookCount());
     }
 
 }
