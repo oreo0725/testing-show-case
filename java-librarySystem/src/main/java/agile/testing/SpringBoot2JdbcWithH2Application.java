@@ -36,5 +36,8 @@ public class SpringBoot2JdbcWithH2Application implements CommandLineRunner {
 
         logger.info("All books -> {}", bookRepo.findAll());
 
+        logger.info("*********************");
+        logger.info("*** http://localhost:8080/h2-console ");
+        logger.info("*********************");
     }
 }
