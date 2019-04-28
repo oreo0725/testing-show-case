@@ -26,8 +26,10 @@ test
 
 ## How to run
 
-Tests:
+### Tests:
+
 In Intellij, right click on the *test file* > Run
 
-Database bootstrap application:
+### Database bootstrap application:
+
 On `SpringBoot2JdbcWithH2Application.java`, right on the main function and run.
